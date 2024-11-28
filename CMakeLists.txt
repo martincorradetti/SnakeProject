@@ -7,15 +7,17 @@ set(CMAKE_CXX_STANDARD 20)
 find_package(Curses REQUIRED)
 include_directories(${CURSES_INCLUDE_DIR})
 
-add_executable(gameAPI main.cpp
-        ScreenManager.cpp
-        ScreenManager.h
-        Renderer.cpp
-        Renderer.h
-        InputHandler.cpp
-        InputHandler.h
+add_executable(gameAPI src/main.cpp
+        src/ScreenManager.cpp
+        include/ScreenManager.h
+        src/Renderer.cpp
+        include/Renderer.h
+        src/InputHandler.cpp
+        include/InputHandler.h
         ColorManager.cpp
-        ColorManager.h
+        include/ColorManager.h
+        src/GameAPI.cpp
+        include/GameAPI.h
 )
 
 # Link the ncurses library to your executable

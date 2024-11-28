@@ -1,15 +1,15 @@
 #include "Renderer.h"
 #include <ncurses.h>
 
-void Renderer::drawText(int y, int x, const std::string &text) {
+void Renderer::drawText(const int y, const int x, const std::string &text) {
     mvprintw(y, x, text.c_str());
 }
 
-void Renderer::drawChar(int y, int x, char c) {
+void Renderer::drawChar(const int y, const int x, const char c) {
     mvaddch(y, x, c);
 }
 
-void Renderer::drawRectangle(int startY, int startX, int height, int width) {
+void Renderer::drawRectangle(const int startY, const int startX, const int height, const int width) {
     mvhline(startY, startX, 0, width);
     mvhline(startY + height, startX, 0, width);
     mvvline(startY, startX, 0, height);

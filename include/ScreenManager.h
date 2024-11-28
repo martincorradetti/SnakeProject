@@ -9,9 +9,9 @@ public:
     ScreenManager();
     ~ScreenManager();
 
-    void clearScreen(bool refreshImmediately = true);
-    void refreshScreen();
+    static void clearScreen(bool refreshImmediately = true);
+    static void refreshScreen();
     void getScreenSize(int &rows, int &cols) const;
 
-    void drawBorder();
+    static void drawBorder();
 };

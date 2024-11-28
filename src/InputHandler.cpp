@@ -5,7 +5,7 @@ int InputHandler::getKey() {
     return getch();
 }
 
-void InputHandler::setTimeout(int milliseconds) {
+void InputHandler::setTimeout(const int milliseconds) {
     timeout(milliseconds);
 }
 
@@ -13,7 +13,7 @@ void InputHandler::resetTimeout() {
     timeout(-1);
 }
 
-KeyAction InputHandler::mapKey(int key) {
+KeyAction InputHandler::mapKey(const int key) {
     switch (key) {
         case KEY_UP: return KeyAction::MOVE_UP;
         case KEY_DOWN: return KeyAction::MOVE_DOWN;

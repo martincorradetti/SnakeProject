@@ -7,11 +7,11 @@ void ColorManager::initialize() {
     }
 }
 
-void ColorManager::setColorPair(short pair, short fg, short bg) {
+void ColorManager::setColorPair(const short pair, const short fg, const short bg) {
     init_pair(pair, fg, bg);
 }
 
-void ColorManager::useColorPair(short pair) {
+void ColorManager::useColorPair(const short pair) {
     attron(COLOR_PAIR(pair));
 }
 

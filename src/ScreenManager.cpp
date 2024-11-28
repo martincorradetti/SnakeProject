@@ -14,7 +14,7 @@ ScreenManager::~ScreenManager() {
     endwin();
 }
 
-void ScreenManager::clearScreen(bool refreshImmediately) {
+void ScreenManager::clearScreen(const bool refreshImmediately) {
     clear();
     if (refreshImmediately) {
         refresh();
