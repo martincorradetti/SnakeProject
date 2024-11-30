@@ -18,7 +18,7 @@
 Clone the repository and link the `ncurses` library:
 ```bash
 git clone https://github.com/drake0x64/gameAPI.git
-cd gameAPI
+cd GameAPI
 mkdir build && cd build
 cmake ..
 make
