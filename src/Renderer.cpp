@@ -1,12 +1,27 @@
 #include "Renderer.h"
 #include <ncurses.h>
 
-void Renderer::drawText(const int y, const int x, const std::string &text) {
-    mvprintw(y, x, text.c_str());
+void Renderer::print(const char ch)
+{
+  	mvprintw(0, 0, "%c", ch);
 }
 
-void Renderer::drawChar(const int y, const int x, const char c) {
-    mvaddch(y, x, c);
+void Renderer::print(const char* text) {
+  if (text != nullptr)
+  {
+    mvprintw(0, 0, "%s", text);
+  }
+}
+
+void Renderer::print(const int y, const int x, const char ch)
+{
+  mvprintw(y, x, "%c", ch);
+}
+void Renderer::print(const int y, const int x, const char* text) {
+  if (text != nullptr)
+  {
+    	mvprintw(y, x, "%s", text);
+  }
 }
 
 void Renderer::drawRectangle(const int startY, const int startX, const int height, const int width) {

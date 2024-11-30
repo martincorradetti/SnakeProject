@@ -1,55 +1,66 @@
 #include "GameAPI.h"
 
-// Initialize the singleton instance
-GameAPI& GameAPI::getInstance() {
-    static GameAPI instance;
-    return instance;
-}
+// Constructor
+GameAPI::GameAPI() = default;
 
-// Private constructor
-GameAPI::GameAPI() {
-    ColorManager::initialize(); // Initialize colors during setup
-}
+// Destructor
+GameAPI::~GameAPI() = default;
 
 // Delegated methods
-void GameAPI::clearScreen(const bool refreshImmediately) {
-    ScreenManager::clearScreen(refreshImmediately);
+void GameAPI::clearScreen(const bool refreshImmediately)
+{
+    screenManager.clearScreen(refreshImmediately);
 }
 
-void GameAPI::refreshScreen() {
-    ScreenManager::refreshScreen();
+void GameAPI::refreshScreen()
+{
+    screenManager.refreshScreen();
 }
 
-void GameAPI::drawBorder() {
-    ScreenManager::drawBorder();
+void GameAPI::drawBorder()
+{
+    screenManager.drawBorder();
 }
 
-void GameAPI::getScreenSize(int &rows, int &cols) const {
+void GameAPI::getScreenSize(int &rows, int &cols) const
+{
     screenManager.getScreenSize(rows, cols);
 }
 
-void GameAPI::drawText(const int y, const int x, const std::string &text) {
-    Renderer::drawText(y, x, text);
+void GameAPI::print(const char ch)
+{
+	renderer.print(ch);
 }
 
-void GameAPI::drawChar(const int y, const int x, const char c) {
-    Renderer::drawChar(y, x, c);
+void GameAPI::print(const char* text)
+{
+	renderer.print(text);
+}
+
+void GameAPI::print(const int y, const int x, const char ch)
+{
+    renderer.print(y, x, ch);
+}
+
+void GameAPI::print(const int y, const int x, const char* text)
+{
+	renderer.print(y, x, text);
 }
 
 void GameAPI::drawRectangle(const int startY, const int startX, const int height, const int width) {
-    Renderer::drawRectangle(startY, startX, height, width);
+    renderer.drawRectangle(startY, startX, height, width);
 }
 
 int GameAPI::getKey() {
-    return InputHandler::getKey();
+    return inputHandler.getKey();
 }
 
 void GameAPI::setInputTimeout(const int milliseconds) {
-    InputHandler::setTimeout(milliseconds);
+    inputHandler.setTimeout(milliseconds);
 }
 
 void GameAPI::resetInputTimeout() {
-    InputHandler::resetTimeout();
+    inputHandler.resetTimeout();
 }
 
 void GameAPI::initColors() {

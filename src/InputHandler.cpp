@@ -1,19 +1,23 @@
 #include "InputHandler.h"
 #include <ncurses.h>
 
-int InputHandler::getKey() {
+int InputHandler::getKey()
+{
     return getch();
 }
 
-void InputHandler::setTimeout(const int milliseconds) {
+void InputHandler::setTimeout(const int milliseconds)
+{
     timeout(milliseconds);
 }
 
-void InputHandler::resetTimeout() {
+void InputHandler::resetTimeout()
+{
     timeout(-1);
 }
 
-KeyAction InputHandler::mapKey(const int key) {
+KeyAction InputHandler::mapKey(const int key)
+{
     switch (key) {
         case KEY_UP: return KeyAction::MOVE_UP;
         case KEY_DOWN: return KeyAction::MOVE_DOWN;

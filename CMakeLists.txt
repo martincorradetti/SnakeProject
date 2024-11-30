@@ -15,10 +15,9 @@ include_directories(header lib/ncurses++)
 # Source files
 file(GLOB_RECURSE GAMEAPI_SOURCES src/*.cpp)
 file(GLOB_RECURSE NCURSES_INTERFACE_SOURCES lib/ncurses++/*.cpp)
-file(GLOB_RECURSE GAMEAPI_HEADERS header/*.h)
 
 # Add the executable
-add_executable(GameApi main.cpp ${GAMEAPI_SOURCES} ${NCURSES_INTERFACE_SOURCES} ${GAMEAPI_HEADERS})
+add_executable(GameApi main.cpp ${GAMEAPI_SOURCES} ${NCURSES_INTERFACE_SOURCES})
 
 # Link libraries
-target_link_libraries(GameApi ncurses)
+target_link_libraries(GameApi ncurses tinfo)
