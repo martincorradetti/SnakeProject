@@ -24,6 +24,29 @@ void Renderer::print(const int y, const int x, const char* text) {
   }
 }
 
+void Renderer::println(const char ch)
+{
+  mvprintw(0, 0, "%c", ch);
+}
+
+void Renderer::println(const char* text) {
+  if (text != nullptr)
+  {
+    mvprintw(0, 0, "%s", text);
+  }
+}
+
+void Renderer::println(const int y, const int x, const char ch)
+{
+  mvprintw(y, x, "%c", ch);
+}
+void Renderer::println(const int y, const int x, const char* text) {
+  if (text != nullptr)
+  {
+    mvprintw(y, x, "%s", text);
+  }
+}
+
 void Renderer::drawRectangle(const int startY, const int startX, const int height, const int width) {
     mvhline(startY, startX, 0, width);
     mvhline(startY + height, startX, 0, width);
