@@ -1,13 +1,13 @@
 
 #pragma once
 
-class ScreenManager {
+class WindowManager {
 private:
     int screenRows, screenCols;
 
 public:
-    ScreenManager();
-    ~ScreenManager();
+    WindowManager();
+    ~WindowManager();
 
     void clearScreen(bool refreshImmediately = true);
     void refreshScreen();

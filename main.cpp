@@ -1,10 +1,10 @@
-#include "GameAPI.h"
+#include "NCursesAPI.h"
 
 int main()
 {
-    GameAPI game;
+    NCursesAPI game;
 
     game.clearScreen();
-    game.print("Hello World!");
+    game.println("Hello World!");
     game.getKey();
 }

@@ -1,21 +1,21 @@
 #pragma once
 
-#include "ScreenManager.h"
+#include "WindowManager.h"
 #include "Renderer.h"
 #include "InputHandler.h"
 #include "ColorManager.h"
 
-class GameAPI {
+class NCursesAPI {
 private:
     // Underlying components
-    ScreenManager screenManager;
+    WindowManager screenManager;
     Renderer renderer;
     InputHandler inputHandler;
     ColorManager colorManager;
 
 public:
-  	GameAPI();
-    ~GameAPI();
+  	NCursesAPI();
+    ~NCursesAPI();
 
     // Public methods (delegated to underlying classes)
     void clearScreen(bool refreshImmediately = true);
@@ -28,6 +28,11 @@ public:
     void print(const char* text);
     void print(char ch);
  	void print(int y, int x, const char* text);
+
+    void println(int y, int x, char ch);
+    void println(const char* text);
+    void println(char ch);
+    void println(int y, int x, const char* text);
 
     void drawRectangle(int startY, int startX, int height, int width);
 

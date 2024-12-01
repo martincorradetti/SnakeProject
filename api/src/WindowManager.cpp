@@ -1,7 +1,7 @@
-#include "ScreenManager.h"
+#include "WindowManager.h"
 #include <ncurses.h>
 
-ScreenManager::ScreenManager() {
+WindowManager::WindowManager() {
     initscr();
     cbreak();
     noecho();
@@ -10,27 +10,27 @@ ScreenManager::ScreenManager() {
     getmaxyx(stdscr, screenRows, screenCols);
 }
 
-ScreenManager::~ScreenManager() {
+WindowManager::~WindowManager() {
     endwin();
 }
 
-void ScreenManager::clearScreen(const bool refreshImmediately) {
+void WindowManager::clearScreen(const bool refreshImmediately) {
     clear();
     if (refreshImmediately) {
         refresh();
     }
 }
 
-void ScreenManager::refreshScreen() {
+void WindowManager::refreshScreen() {
     refresh();
 }
 
-void ScreenManager::getScreenSize(int &rows, int &cols) const {
+void WindowManager::getScreenSize(int &rows, int &cols) const {
     rows = screenRows;
     cols = screenCols;
 }
 
-void ScreenManager::drawBorder() {
+void WindowManager::drawBorder() {
     box(stdscr, 0, 0);
     refresh();
 }

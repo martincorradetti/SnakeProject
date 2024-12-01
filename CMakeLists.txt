@@ -10,14 +10,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -Wpedantic -Wshadow -Wconversion -Wsign-conversion -Wnull-dereference -Wformat=2 -Wunused -Woverloaded-virtual -Wduplicated-cond -Wduplicated-branches -fsanitize=address,undefined,leak -O0 -g3")
 
 # Include directories
-include_directories(header lib/ncurses++)
+include_directories(api/header)
 
 # Source files
-file(GLOB_RECURSE GAMEAPI_SOURCES src/*.cpp)
-file(GLOB_RECURSE NCURSES_INTERFACE_SOURCES lib/ncurses++/*.cpp)
+file(GLOB_RECURSE NCURSES_API_SOURCES api/src/*.cpp)
 
 # Add the executable
-add_executable(GameApi main.cpp ${GAMEAPI_SOURCES} ${NCURSES_INTERFACE_SOURCES})
+add_executable(NCursesAPI main.cpp ${NCURSES_API_SOURCES})
 
 # Link libraries
-target_link_libraries(GameApi ncurses tinfo)
+target_link_libraries(NCursesAPI ncurses tinfo)
