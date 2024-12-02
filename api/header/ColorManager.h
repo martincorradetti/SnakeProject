@@ -2,10 +2,10 @@
 
 class ColorManager {
 public:
-    void initialize();
+
+    ColorManager();
 
     void setColorPair(short pair, short fg, short bg);
-
     void useColorPair(short pair);
     void resetColor();
 };

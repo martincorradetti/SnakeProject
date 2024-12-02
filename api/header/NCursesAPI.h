@@ -8,13 +8,16 @@
 class NCursesAPI {
 private:
     // Underlying components
-    WindowManager screenManager;
-    Renderer renderer;
-    InputHandler inputHandler;
-    ColorManager colorManager;
+    WindowManager* windowManager;
+    Renderer* renderer;
+    InputHandler* inputHandler;
+    ColorManager* colorManager;
 
 public:
   	NCursesAPI();
+
+    explicit NCursesAPI(bool color);
+
     ~NCursesAPI();
 
     // Public methods (delegated to underlying classes)
